@@ -1,35 +1,31 @@
 const mongo = require('mongodb');
 const { MongoClient } = mongo;
 
-const POOL_SIZE = 5; //process.env.IS_OFFLINE ? 1 : 50;
+const POOL_SIZE = 5;
 let cachedDb = null;
 
-let connectToDatabase = (uri, dbName) => {
-  if (cachedDb && cachedDb?.serverConfig?.isConnected()) {
-    return Promise.resolve(cachedDb);
-  }
-  return MongoClient.connect(uri, {
+let connectToDatabase = async (uri, dbName) => {
+  if (cachedDb) return cachedDb;
+
+  console.log("Connecting to MongoDB URI:", uri); // debug line
+
+  const client = await MongoClient.connect(uri, {
     useNewUrlParser: true,
-    poolSize: POOL_SIZE,
     useUnifiedTopology: true,
-    w: 'majority',
-    readConcern: 'local',
-  }).then((client) => {
-    cachedDb = client.db(dbName);
-    return cachedDb;
+    maxPoolSize: POOL_SIZE,
+    writeConcern: { w: 'majority', wtimeout: 5000, j: true }, // removes deprecated warning
   });
+
+  cachedDb = client.db(dbName);
+  return cachedDb;
 };
 
-let getMongoIdForValue = (id) => {
-  return new mongo.ObjectID(id);
-};
-
-let getMongoId = () => {
-  return new mongo.ObjectID();
-};
+let getMongoIdForValue = (id) => new mongo.ObjectID(id);
+let getMongoId = () => new mongo.ObjectID();
 
 module.exports = {
-  connectToDatabase: connectToDatabase,
-  getMongoId: getMongoId,
-  getMongoIdForValue: getMongoIdForValue,
+  connectToDatabase,
+  getMongoId,
+  getMongoIdForValue,
 };
+
