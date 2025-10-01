@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "name": "EMERALD",
+    "img": "https://raw.githubusercontent.com/G1nseng/TagProMaps/refs/heads/main/mapimg/EMERALD.png",
+    "currRank": 1,
+    "prevRank": 1,
+    "rating": 1500,
+    "deviation": 350,
+    "sigma": 0.06
+  },
+  {
+    "id": "2",
+    "name": "GeoKoala",
+    "img": "https://raw.githubusercontent.com/G1nseng/TagProMaps/refs/heads/main/mapimg/GeoKoala.png",
+    "currRank": 2,
+    "prevRank": 2,
+    "rating": 1500,
+    "deviation": 350,
+    "sigma": 0.06
+  },
+  {
+    "id": "3",
+    "name": "Velocity",
+    "img": "https://raw.githubusercontent.com/G1nseng/TagProMaps/refs/heads/main/mapimg/Velocity.png",
+    "currRank": 3,
+    "prevRank": 3,
+    "rating": 1500,
+    "deviation": 350,
+    "sigma": 0.06
+  },
+  {
+    "id": "4",
+    "name": "IRON",
+    "img": "https://raw.githubusercontent.com/G1nseng/TagProMaps/refs/heads/main/mapimg/IRON.png",
+    "currRank": 4,
+    "prevRank": 4,
+    "rating": 1500,
+    "deviation": 350,
+    "sigma": 0.06
+  },
+  {
+    "id": "5",
+    "name": "Scorpio",
+    "img": "https://raw.githubusercontent.com/G1nseng/TagProMaps/refs/heads/main/mapimg/Scorpio.png",
+    "currRank": 5,
+    "prevRank": 5,
+    "rating": 1500,
+    "deviation": 350,
+    "sigma": 0.06
+  }
+]
+  
